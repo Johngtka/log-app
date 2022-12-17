@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+}
+#menu{
+    width: 100%;
+    background-color: #ff9a3e;
+    height: 10%;
+    padding-top: 20px;
+    text-align: center;
+    border-bottom: 2px solid #000000;
+}
+h1{
+    font-size: 100%;
+    font-weight:bolder;
+    text-decoration: underline solid 2px;
+}
+.but{
+    color: #000000;
+    background-color: #ffb802;
+    margin: 10px;
+    height: 50px;
+    border-radius: 20px;
+    text-shadow: 2px 1px 1px #009dff;
+    font-size: 30px;
+    width: 100px;
+}
+label{
+    font-size: 20px;
+    font-family:serif;
+    font-weight: 900;
+}
+.reg input[type="text"], input[type="password"]{
+    height: 30px;
+    width: 100px;
+    border-radius: 20px;
+    font-weight: 900;
+    font-family: serif;
+    text-align: center;
+}
+.log input[type="text"], input[type="password"]{
+    height: 30px;
+    font-family: serif;
+    width: 100px;
+    font-weight: 900;
+    border-radius: 20px;
+    text-align: center;
+}
