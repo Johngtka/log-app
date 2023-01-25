@@ -1,46 +1,48 @@
-import React from "react";
-
+import React from 'react'
 class Reg extends React.Component {
     state = {
-        error: ""
+        error: ''
     }
 
-    setError(message){
-       this.setState({error: message}) 
+    setError(message) {
+        this.setState({ error: message })
     }
 
-    resetError(){
-        this.setError("")
+    resetError() {
+        this.setError('')
     }
 
-    check(bool, error){
-        if(bool){
+    check(bool, error) {
+        if (bool) {
             this.setError(error);
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
-    checkValue(value, name){
-        if(value) return true;
-        this.setError(name + " is empty!")
-        return false;
+    checkValue(value, name) {
+        if (value) return true
+        this.setError(name + ' is empty!')
+        return false
+    }
+    newuser(nu) {
+        localStorage.setItem('nu', JSON.stringify(nu))
     }
 
     register(reset) {
-        const nameField = document.getElementById('name')
-        const subNameField = document.getElementById('sbname')
-        const phoneField = document.getElementById('phone')
-        const emailField = document.getElementById('email')
-        const loginField = document.getElementById('login')
-        const passField = document.getElementById('pass')
-        if(reset) {
-            nameField.value = ""
-            subNameField.value = ""
-            phoneField.value = ""
-            emailField.value = ""
-            loginField.value = ""
-            passField.value = ""
+        const nameField = document.querySelector('#name')
+        const subNameField = document.querySelector('#sbname')
+        const phoneField = document.querySelector('#phone')
+        const emailField = document.querySelector('#email')
+        const loginField = document.querySelector('#login')
+        const passField = document.querySelector('#pass')
+        if (reset) {
+            nameField.value = ''
+            subNameField.value = ''
+            phoneField.value = ''
+            emailField.value = ''
+            loginField.value = ''
+            passField.value = ''
             console.clear()
         } else {
             const nameValue = nameField.value
@@ -49,25 +51,29 @@ class Reg extends React.Component {
             const emailValue = emailField.value
             const loginValue = loginField.value
             const passValue = passField.value
-            if(this.checkValue(nameValue, "Name") &&
-            this.checkValue(subNameValue, "Subname") &&
-            this.checkValue(phoneValue, "Phone") &&
-            this.checkValue(emailValue, "Email") &&
-            this.checkValue(loginValue, "Login")&&
-            this.checkValue(passValue, "Pass")){
-                console.log(nameValue)
-                console.log(subNameValue)
-                console.log(phoneValue)
-                console.log(emailValue)
-                console.log(loginValue)
-                console.log(passValue)
+            if (this.checkValue(nameValue, 'Name') &&
+                this.checkValue(subNameValue, 'Subname') &&
+                this.checkValue(phoneValue, 'Phone') &&
+                this.checkValue(emailValue, 'Email') &&
+                this.checkValue(loginValue, 'Login') &&
+                this.checkValue(passValue, 'Pass')) {
+                const nu = [
+                    nameValue,
+                    subNameValue,
+                    phoneValue,
+                    emailValue,
+                    loginValue,
+                    passValue
+                ]
+                this.newuser(nu)
+                // console.log(nu)
                 this.resetError()
             }
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="reg">
                 {/*<h1>Sign In</h1>*/}
                 <div>

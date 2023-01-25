@@ -1,7 +1,7 @@
-import React from 'react';
-import Reg from './reg.js';
-import Log from './log.js';
-import './index.js';
+import React from 'react'
+import Reg from './reg.js'
+import Log from './log.js'
+import './index.js'
 import './app.css'
 import lightImageOff from './pic_bulboff.gif'
 import lightImageOn from './pic_bulbon.gif'
@@ -11,13 +11,15 @@ import {
   Routes,
   Route,
   Link
-} from "react-router-dom";
-
+} from 'react-router-dom';
 class App extends React.Component {
   state = {
     lightOn: false
   }
-
+  // checkuser() {
+  //   if (localStorage.getItem('nu') === null) {
+  //   }
+  // }
   render() {
     return (
       <div className="App">

@@ -29,9 +29,17 @@ main {
 #menu a {
     color: #000000;
     text-decoration: none;
-    margin-right: 130px;
-    margin-left: 130px;
+    /* margin-right: 130px;
+    margin-left: 130px; */
+    display: inline-block;
+    width: 30%;
     text-align: center;
+}
+
+@media only screen and (max-width:500px) {
+    #menu a {
+        font-size: 20px;
+    }
 }
 
 #menu a:hover {
