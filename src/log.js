@@ -1,7 +1,8 @@
 import React from 'react';
 class Log extends React.Component {
     state = {
-        error: ""
+        error: '',
+        message: ''
     }
 
     setError(message) {
@@ -9,15 +10,11 @@ class Log extends React.Component {
     }
 
     resetError() {
-        this.setError("")
-    }
-    check() {
-        const d = JSON.parse(localStorage.getItem('nu'))
-        return d
+        this.setError('')
     }
     checkValue(value, name) {
         if (value) return true
-        this.setError(name + " is empty!")
+        this.setError(name + ' is empty!')
         return false
     }
 
@@ -31,8 +28,23 @@ class Log extends React.Component {
         } else {
             const loginValue = loginField.value
             const passwordValue = passwordField.value
-            if (this.checkValue(loginValue, 'Login') && this.checkValue(passwordValue, 'Password')) {
-                this.check()
+            const log = this.checkValue(loginValue, 'Login')
+            const pass = this.checkValue(passwordValue, 'Password')
+            if (log && pass) {
+                const d = JSON.parse(localStorage.getItem('nu'))
+                const usr = {
+                    login: log,
+                    password: pass
+                }
+                for (let password of d) {
+                    if (usr.login && usr.password === password) {
+                        this.setState({ message: 'User is correct' })
+                        break
+                    } else {
+                        this.setState({ message: 'Check your login or password' })
+                        break
+                    }
+                }
                 this.resetError()
             }
         }
@@ -47,7 +59,8 @@ class Log extends React.Component {
                     <label>Password: <input type="password" id="pass" placeholder="Type password"></input></label><br></br>
                     <button className="but" onClick={this.login.bind(this, false)}>login</button>
                     <button className="but" onClick={this.login.bind(this, true)}>reset</button>
-                    {this.state.error ? <div>{this.state.error}</div> : ""}
+                    {this.state.error ? <div>{this.state.error}</div> : ''}
+                    {this.state.message ? <div>{this.state.message}</div> : ''}
                 </div>
             </div>
         );
