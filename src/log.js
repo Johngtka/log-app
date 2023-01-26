@@ -37,7 +37,7 @@ class Log extends React.Component {
                     password: pass
                 }
                 for (let password of d) {
-                    if (usr.login && usr.password === password) {
+                    if (!!usr.login && !!usr.password === password) {
                         this.setState({ message: 'User is correct' })
                         break
                     } else {
