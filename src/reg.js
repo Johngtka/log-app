@@ -85,7 +85,7 @@ class Reg extends React.Component {
                     <label>Password: <input type="password" id="pass" placeholder="Max 25 signs"></input></label><br></br>
                     <button className="but" onClick={this.register.bind(this, false)}>sign</button>
                     <button className="but" onClick={this.register.bind(this, true)}>reset</button>
-                    {this.state.error ? <div>{this.state.error}</div> : ""}
+                    {this.state.error ? <div>{this.state.error}</div> : ''}
                 </div>
             </div>
         );

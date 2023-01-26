@@ -11,15 +11,12 @@ import {
   Routes,
   Route,
   Link
-} from 'react-router-dom';
+} from 'react-router-dom'
 class App extends React.Component {
   state = {
-    lightOn: false
+    lightOn: false,
+    message: ''
   }
-  // checkuser() {
-  //   if (localStorage.getItem('nu') === null) {
-  //   }
-  // }
   render() {
     return (
       <div className="App">
@@ -40,7 +37,7 @@ class App extends React.Component {
         </main>
         <footer>The page by JG </footer>
       </div>
-    );
+    )
   }
 }
-export default App;
+export default App
