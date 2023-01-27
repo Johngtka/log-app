@@ -3,8 +3,9 @@ import Reg from './reg.js'
 import Log from './log.js'
 import './index.js'
 import './app.css'
-import lightImageOff from './pic_bulboff.gif'
-import lightImageOn from './pic_bulbon.gif'
+// import lightImageOff from './pic_bulboff.gif'
+// import lightImageOn from './pic_bulbon.gif'
+import Timer from './timer'
 
 import {
   BrowserRouter as Router,
@@ -28,12 +29,13 @@ class App extends React.Component {
               <Link to="/register">Sign In</Link>
               <Link to="/App">Back</Link>
             </div>
+            <Timer />
             <Routes>
               <Route path="register" element={<Reg />}></Route>
               <Route path="login" element={<Log />}></Route>
             </Routes>
           </Router>
-          <img id="light" alt="light" src={this.state.lightOn ? lightImageOn : lightImageOff} onClick={() => { this.setState({ lightOn: !this.state.lightOn }) }}></img>
+          {/* <img id="light" alt="light" src={this.state.lightOn ? lightImageOn : lightImageOff} onClick={() => { this.setState({ lightOn: !this.state.lightOn }) }}></img> */}
         </main>
         <footer>The page by JG </footer>
       </div>

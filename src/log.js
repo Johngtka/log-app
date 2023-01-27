@@ -26,24 +26,20 @@ class Log extends React.Component {
             passwordField.value = ''
             console.clear()
         } else {
-            const loginValue = loginField.value
-            const passwordValue = passwordField.value
-            const log = this.checkValue(loginValue, 'Login')
-            const pass = this.checkValue(passwordValue, 'Password')
-            if (log && pass) {
-                const d = JSON.parse(localStorage.getItem('nu'))
-                const usr = {
-                    login: log,
-                    password: pass
-                }
-                for (let password of d) {
-                    if (usr.login && usr.password === password) {
+            const login = loginField.value
+            this.checkValue(login, 'Login')
+            const password = passwordField.value;
+            this.checkValue(password, 'Password')
+            const users = JSON.parse(localStorage.getItem("users"));
+            if (login && password) {
+                if (login in users) {
+                    if (users[login].passValue === password) {
                         this.setState({ message: 'User is correct' })
-                        break
                     } else {
                         this.setState({ message: 'Check your login or password' })
-                        break
                     }
+                } else {
+                    this.setState({ message: 'Not found user' })
                 }
                 this.resetError()
             }

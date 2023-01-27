@@ -26,7 +26,9 @@ class Reg extends React.Component {
         return false
     }
     newuser(nu) {
-        localStorage.setItem('nu', JSON.stringify(nu))
+        const users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : {}
+        users[nu.loginValue] = nu
+        localStorage.setItem("users", JSON.stringify(users))
     }
 
     register(reset) {
@@ -57,14 +59,14 @@ class Reg extends React.Component {
                 this.checkValue(emailValue, 'Email') &&
                 this.checkValue(loginValue, 'Login') &&
                 this.checkValue(passValue, 'Pass')) {
-                const nu = [
+                const nu = {
                     nameValue,
                     subNameValue,
                     phoneValue,
                     emailValue,
                     loginValue,
                     passValue
-                ]
+                }
                 this.newuser(nu)
                 // console.log(nu)
                 this.resetError()
