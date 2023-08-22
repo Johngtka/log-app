@@ -1,20 +1,23 @@
-import React from "react";
+import React from 'react';
 
 class Timer extends React.Component {
     state = {
-        date: new Date()
-    }
+        date: new Date(),
+    };
 
     constructor(props) {
-        super(props)
+        super(props);
         setInterval(() => {
-            this.setState({ date: new Date() })
+            this.setState({ date: new Date() });
         }, 1000);
     }
 
-
     render() {
-        return <span className="timer">{this.state.date.toLocaleString("pl-PL").replace(",", "")}</span>
+        return (
+            <span className="timer">
+                {this.state.date.toLocaleString('pl-PL').replace(',', '')}
+            </span>
+        );
     }
 }
 
