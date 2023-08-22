@@ -14,11 +14,10 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "react-scripts build && npm run deploy",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "format": "prettier --write ./**/*.{js,html,css}",
-        "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
