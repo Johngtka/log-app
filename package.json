@@ -6,7 +6,6 @@
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
-        "gh-pages": "^6.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.5.0",
@@ -15,11 +14,10 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build && npm run deploy",
+        "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "format": "prettier --write ./**/*.{js,html,css}",
-        "deploy": "gh-pages -d build"
+        "format": "prettier --write ./**/*.{js,html,css}"
     },
     "eslintConfig": {
         "extends": [
